@@ -1,0 +1,28 @@
+1. What is a React Hook?
+    - Hooks are an easier way for us to use react features instead of creating classes.
+
+2. Describe the process of making a protected route?
+    - 
+
+3. Describe the process of making a protected page?
+    -
+
+4. What is CORS & why is it useful?
+    - stands as Cross-Origin Resource Sharing
+    - When a client requests for a file from our server, we get the request and send the file to the client with a 200 response but if the client wants to send a request somewhere outside of our server then the request will be blocked by the browser's policy that the cors not allowed. If we use CORS in our application it will allow us to do file sharing from other sources too.
+
+5. What is imperative programming?
+    - Imperative programming is when we create a function or class to do a specific job for example to find a maximum or minimum value inside a list we use a for loop to iterate over a list and compare each value.
+
+6. What is declarative programming?
+    - Decalartive programming means instead of creating a function, we can use a built-in function that does the same job in one line.
+    
+7. What are some of the differences between imperiative & declarative programming?
+    - Imperative requieres more time (its time consuming) and more critical thinking
+    - Declarative usually has more features
+    - Decalartive is easier to understand
+    
+
+Resources:
+https://reactjs.org/docs/hooks-overview.html
+https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
