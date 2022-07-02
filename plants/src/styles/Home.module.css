@@ -2,6 +2,23 @@
   padding: 0 ;
 }
 
+.greenButton{
+  background-color: #749970;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  padding: 15px;
+  width: 150px;
+}
+.moreButton{
+  display: flex;
+  justify-content: flex-end;
+  padding: 30px;
+}
+.postedPlants{
+  display: flex;
+  justify-content: space-around;
+}
 .zeroPlant{
   z-index: 3;
   transform: translate(-200px,-10px);

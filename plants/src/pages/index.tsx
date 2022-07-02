@@ -5,6 +5,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
+  
   return (
     <div className={styles.container}>
       <Head>
@@ -39,6 +40,26 @@ export default function Home() {
         <Image src="/HomeMainPlant2.png" width={300} height={300}></Image>
         </div>
         
+      </div>
+      <div className={styles.postedPlants}>
+        <div className={styles.plants}>
+          <Image src="/HomrPlant1.png" width={234} height={449}></Image>
+          <div>
+            <h1>PLANT A</h1>
+            <p>The best plant for making wishes and curse people.</p>
+          </div>
+        </div>
+        <div>
+          <Image src="/HomePlant2.png" width={234} height={449}></Image>
+          <div>
+            <h1>PLANT B</h1>
+            <p>The best plant for making wishes and curse people.</p>
+          </div>
+        </div>
+
+      </div>
+      <div className={styles.moreButton}>
+        <button className={styles.greenButton}>MORE PLANTS</button>
       </div>
       <Footer></Footer>
       
