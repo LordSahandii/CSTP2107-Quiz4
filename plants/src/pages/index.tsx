@@ -6,6 +6,7 @@ import styles from '../styles/Home.module.css'
 import HomePage from '../components/HomeContents/home'
 import SearchBar from '@/components/SearchBar'
 import PlantsFinder from '@/components/PlantsFinder'
+import PlantsCare from '@/components/PlantsCare'
 
 export default function Home() {
 
@@ -17,7 +18,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header/>
-      <PlantsFinder/>
+      <PlantsCare/>
       <Footer/>
       
       
