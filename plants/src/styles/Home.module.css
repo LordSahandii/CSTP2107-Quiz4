@@ -2,6 +2,63 @@
   padding: 0 ;
 }
 
+.zeroPlant{
+  z-index: 3;
+  transform: translate(-200px,-10px);
+}
+.secondPic{
+  z-index: 2;
+  transform: translate(-20px,110px);
+}
+.firstPic{
+  z-index: 1;
+  transform: translate(0px,-80px);
+}
+
+.mainBody2{
+  display: flex;
+  padding: 0;
+}
+
+.mainBody {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.mainParagraph {
+  width: 200px;
+  margin-left: 10px;
+}
+
+.upperBody {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 20px;
+}
+.paragraph {
+  width: 300px;
+  height: 300px;
+  align-self: center;
+  align-content: center;
+  font-size: x-large;
+  transform: translate(250px, 50px);
+  align-items: flex-start;
+  text-align: left;
+  text-decoration: double;
+}
+.head1 {
+  display: inline;
+  width: 200px;
+  height: 200px;
+  font-size: 55;
+  
+  transform: translate(0px, 70px);
+}
+.upperPlant {
+  transform: translate(20px, -10px);
+}
+
 .main {
   min-height: 100vh;
   padding: 4rem 0;

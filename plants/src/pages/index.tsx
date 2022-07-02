@@ -13,7 +13,33 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header></Header>
-      <div className={styles.foot}></div>
+      <div className={styles.upperBody}>
+        <div className={styles.upperPlant}>
+        <Image src="/homePagePlant.png" height={300} width={500} />
+        </div>
+        <h1 className={styles.head1}>T O B Y ' S PLANTS BROS</h1>
+        
+        <p className={styles.paragraph}>Discover what you need to know about plants. Take care of Toby and his friends, otherwise, they will not treat you with kindness.</p>
+
+      </div>
+      <div className={styles.mainBody}>
+        <div>
+        <h1>PLANTS FINDER</h1>
+        <p className={styles.mainParagraph}>Find the plants in our store and take them home for your Toby.</p>
+        </div>
+        <div className={styles.zeroPlant}>
+        <Image src="/HomeUpperPlant.png" width={180} height={250}></Image>
+        </div>
+      </div>
+      <div className={styles.mainBody2}>
+        <div className={styles.firstPic}>
+        <Image src="/HomeMainPlant.png" width={1100} height={400} ></Image>
+        </div>
+        <div className={styles.secondPic}>
+        <Image src="/HomeMainPlant2.png" width={300} height={300}></Image>
+        </div>
+        
+      </div>
       <Footer></Footer>
       
       
