@@ -5,6 +5,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import HomePage from '../components/HomeContents/home'
 import SearchBar from '@/components/SearchBar'
+import PlantsFinder from '@/components/PlantsFinder'
 
 export default function Home() {
 
@@ -16,7 +17,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header/>
-      
+      <PlantsFinder/>
       <Footer/>
       
       
