@@ -8,6 +8,8 @@ import SearchBar from '@/components/SearchBar'
 import PlantsFinder from '@/components/PlantsFinder'
 import PlantsCare from '@/components/PlantsCare'
 import MyPlants from '@/components/MyPlants'
+import AddPlants from '@/components/AddPlants'
+import EditPlants from '@/components/EditPlants'
 
 export default function Home() {
 
@@ -19,8 +21,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header/>
-      <MyPlants/>
+      <EditPlants/>
+      <div className={styles.foot}>
       <Footer/>
+      </div>
       
       
       

@@ -1,22 +1,25 @@
 import Image from "next/image"
-export default function AddPlants(){
+import Styles from "@/styles/EditPlants.module.sass"
+export default function EditPlants(){
 
     return(
         <div>
-            <h1>Edit PLants</h1>
-            <div >
-                <Image  src="./HomePlant2"/>
-                <div>
-                    <div>
+            <h1 className={Styles.title}>Edit Plants</h1>
+            <div className={Styles.edit}>
+                <Image  src="/HomePlant2.png" width={300} height={300} />
+                <div className={Styles.form}>
+                    <div >
                         <h2>Name</h2>
-                        <input type="text"/>
+                        <input type="text" className={Styles.inputs}/>
                     </div>
-                    <div>
+                    <div >
                         <h2>Description</h2>
-                        <input type="text"/>
+                        <input type="text" className={Styles.inputs} />
                     </div>
-                    <button>Done</button>
-                    <button>Delete</button>
+                    <br/>
+                    <button className={Styles.button}>Done</button>
+                    <br/>
+                    <button className={Styles.button}>Delete</button>
 
                 </div>
             </div>
