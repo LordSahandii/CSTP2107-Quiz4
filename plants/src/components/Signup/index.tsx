@@ -4,9 +4,9 @@ import Image from "next/image"
 export default function Signup(){
 
     return(
-        <div>
+        <div className={Styles.container}>
             <div className={Styles.picture}>
-                <Image src="/signup.png" width={200} height={650}/>
+                <Image src="/signup.png" width={300} height={500}/>
             </div>
             <div className={Styles.logForm}>
                 <h1 className={Styles.title}>SIGN IN</h1>

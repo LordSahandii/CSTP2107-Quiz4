@@ -11,6 +11,7 @@ import MyPlants from '@/components/MyPlants'
 import AddPlants from '@/components/AddPlants'
 import EditPlants from '@/components/EditPlants'
 import Login from '@/components/Login'
+import Signup from '@/components/Signup'
 
 export default function Home() {
 
@@ -22,7 +23,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header/>
-      <Login/>
+      <Signup/>
       <div className={styles.foot}>
       <Footer/>
       </div>
