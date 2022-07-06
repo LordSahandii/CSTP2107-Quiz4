@@ -12,8 +12,10 @@ import AddPlants from '@/components/AddPlants'
 import EditPlants from '@/components/EditPlants'
 import Login from '@/components/Login'
 import Signup from '@/components/Signup'
+import { useState } from 'react'
 
 export default function Home() {
+  const [pages, setPages] = useState(0);
 
   return (
     <div className={styles.container}>
@@ -23,7 +25,18 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header/>
-      <Signup/>
+      {
+        pages===0 &&
+        <HomePage/>
+      }
+      {
+        pages===1 &&
+        <PlantsFinder/>
+      }
+      {
+        pages===2 &&
+        <PlantsCare/>
+      }
       <div className={styles.foot}>
       <Footer/>
       </div>
