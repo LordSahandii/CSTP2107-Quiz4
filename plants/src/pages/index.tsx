@@ -1,7 +1,7 @@
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Head from 'next/head'
-import Image from 'next/image'
+
 import styles from '../styles/Home.module.css'
 import HomePage from '../components/HomeContents/home'
 import SearchBar from '@/components/SearchBar'
@@ -10,10 +10,10 @@ import PlantsCare from '@/components/PlantsCare'
 import MyPlants from '@/components/MyPlants'
 import AddPlants from '@/components/AddPlants'
 import EditPlants from '@/components/EditPlants'
-import Login from '@/components/Login'
-import Signup from '@/components/Signup'
+import { useState } from 'react'
 
 export default function Home() {
+  const [pages, setPages] = useState(0);
 
   return (
     <div className={styles.container}>
@@ -23,7 +23,23 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header/>
-      <Signup/>
+      {
+      pages===0 &&
+      <HomePage/>
+      }
+      {
+      pages===1 &&
+      <PlantsFinder/>
+      }
+      {
+      pages===2 &&
+      <PlantsCare/>
+      }
+      {
+      pages===3 &&
+      <MyPlants/>
+      }
+      
       <div className={styles.foot}>
       <Footer/>
       </div>
