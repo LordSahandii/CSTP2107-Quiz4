@@ -5,10 +5,72 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
 import Styles from "@/styles/AddPlants.module.sass"
+import { useState } from 'react'
+import axios from 'axios'
 
 
 export default function Home() {
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [image,setImage] = useState("");
+  const [savedName, setSavedName] = useState('');
 
+  const handleCreateClick = async () =>{
+    const handleJaguarCreate = async () => {
+      try {
+          if (!name || name.length === 0 || name.length > 100) {
+              // throw new Error('')
+              throw {
+                  message: 'name is invalid'
+              };
+          }
+      } catch(error) {
+          console.log('MESSAGE: ', error.message);
+          return;
+      }
+
+      const body = {
+          name,
+          image,
+          description
+      };
+
+      try {
+          // const { data } = await axios.post('http://localhost:3000/api/jaguar', body);
+          // this retrieves JSON from the response
+          // const body = await response.json() as Jaguar;
+          // extract properties that we want from the response
+          // const { name: localName } = body;
+          const { data } = await axios.post('http://localhost:3000/api/users/create', body);
+
+          setSavedName(data.name);
+      } catch(error) {
+          console.log('NETWORK ERROR', error);
+          // axios network error
+          // error.response
+          // error.response.data
+          // error.response.status
+          // error.response.headers
+      }
+  }
+
+
+  }
+  const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+
+    setName(value)
+}
+const handleDescriptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const value = event.target.value;
+
+  setDescription(value)
+}
+const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const value = event.target.value;
+
+  setImage(value)
+}
 
   return (
     <div className={styles.container}>
@@ -21,10 +83,10 @@ export default function Home() {
         <div >
             <h1 className={Styles.title}>Add Plants</h1>
             <div className={Styles.forms}>
-                <input type="file" placeholder="Upload your image" className={Styles.upload} />
-                <input type="text" placeholder="Name" className={Styles.inputs}/>
-                <input type="text" placeholder="Description" className={Styles.inputs}/>
-                <button className={Styles.button}>Done</button>
+                <input type="file" placeholder="Upload your image" className={Styles.upload} onChange={handleImageChange}/>
+                <input type="text" placeholder="Name" className={Styles.inputs} onChange={handleNameChange}/>
+                <input type="text" placeholder="Description" className={Styles.inputs} onChange={handleDescriptionChange}/>
+                <button className={Styles.button} onClick={(handleCreateClick)}>Done</button>
             </div>
         </div>
 
