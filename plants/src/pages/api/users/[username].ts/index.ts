@@ -26,7 +26,7 @@ export default async function userHandler(req: NextApiRequest, res: NextApiRespo
             const { plants } = body as any
             
             if (!Array.isArray(plants) || !plants.length){
-                throw new Error("Missing party secret santa list")
+                throw new Error("Missing list")
             }
 
             const result = await PlantActions.updatePlantList(usernameString, plants)

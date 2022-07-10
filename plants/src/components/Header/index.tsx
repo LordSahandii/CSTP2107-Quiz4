@@ -3,9 +3,9 @@ import {CgProfile} from "react-icons/cg"
 import React from "react"
 
 interface Props{
-    Home : () => void;
-    PlantsF : () => void;
-    PlantsC : () => void;
+    Home ?: () => void;
+    PlantsF ?: () => void;
+    PlantsC ?: () => void;
 }
 
 export default function Header(props:Props){
