@@ -12,7 +12,7 @@ import Header from "@/components/Header";
 
 export default function MyPlants(props:User){
     const searchHandler = () =>{
-        
+
     }
     const router = useRouter();
     const [plants, setPlants] = useState(props.plants)
@@ -32,7 +32,7 @@ export default function MyPlants(props:User){
                             <div className={Styles.plants} key={i}>
                                 <Image src={p.plantImage} width={234} height={449}></Image>
                                 <div className={Styles.captions}>
-                                    <h1>{p.name}</h1>
+                                    <h1>{p.Plantname}</h1>
                                     <p>{p.description}</p>
                                     <button className={Styles.editButton} onClick={()=>{}}>EDIT</button>
                                 </div>

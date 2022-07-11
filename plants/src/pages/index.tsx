@@ -7,11 +7,6 @@ import HomePage from '../components/HomeContents/home'
 import SearchBar from '@/components/SearchBar'
 import PlantsFinder from '@/components/PlantsFinder'
 import PlantsCare from '@/components/PlantsCare'
-import MyPlants from '@/components/MyPlants'
-import AddPlants from '@/components/AddPlants'
-import EditPlants from '@/components/EditPlants'
-import Login from '@/components/Login'
-import Signup from '@/components/Signup'
 import { useState } from 'react'
 
 export default function Home() {

@@ -1,5 +1,5 @@
 export default interface Plant{
-    name: string;
+    Plantname: string;
 
     plantImage: string;
 
