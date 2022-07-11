@@ -26,8 +26,8 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "src/pages/EditPlants/[plant]"  ],
+    "**/*.tsx",
+  ],
   "exclude": [
     "node_modules"
   ]
