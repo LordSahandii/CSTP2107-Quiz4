@@ -1,10 +1,13 @@
 import mongoose from 'mongoose';
+import { MongoClient } from "mongodb"
+
 
 
 export default class Database {
+    
 
     static client: typeof mongoose;
-
+    
     /**
      * sets up the database singleton
      * @param uri connection uri of the database
@@ -25,6 +28,7 @@ export default class Database {
      */
     static async setupClient(uri: string): Promise<void>{
         const client = await mongoose.connect(uri)
+        
 
         this.client = client;
     }

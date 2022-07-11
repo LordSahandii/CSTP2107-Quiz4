@@ -7,9 +7,13 @@ import styles from '../styles/Home.module.css'
 import Styles from "@/styles/AddPlants.module.sass"
 import { useState } from 'react'
 import axios from 'axios'
+import PlantActions from '@/backend/actions/plants'
+import { GetServerSideProps } from 'next'
+import User from '@/interfaces/User'
+import { getToken } from 'next-auth/jwt'
 
 
-export default function Home() {
+export default function AddPlants(props:User) {
 
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -36,7 +40,7 @@ export default function Home() {
       };
 
       try {
-          const { data } = await axios.post('http://localhost:3000/api/users/create', body);
+          const { data } = await axios.post('http://localhost:3000/api/users/'+props.username, body);
 
           setSavedName(data.name);
       } catch(error) {
@@ -87,4 +91,46 @@ const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       
     </div>
   )
+}
+export const getServerSideProps : GetServerSideProps = async (context)=> {
+    
+    try{
+    const secret = process.env.NEXTAUTH_SECRET;
+    const token = await getToken(
+        {
+            req: context.req,
+            secret
+        }
+    );
+
+    if (!token) {
+        return {
+            redirect: {
+                destination: '/login',
+                permanent: false
+            }
+        }
+    }
+    
+    const username = context.params.username as string
+    const user = await PlantActions.getAUserById(username);
+    
+    const userList = JSON.parse(JSON.stringify(user)) as User
+    if(!userList){
+        throw Error("USER NOT FOUND")
+    }
+
+    return {
+        props:{
+            userList     
+        }
+    }
+    }catch(e){
+        return{
+            redirect: {
+              destination: '/404',
+              permanent: false,
+            },
+        }
+    }
 }

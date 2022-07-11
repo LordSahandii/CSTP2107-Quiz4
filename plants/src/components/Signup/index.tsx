@@ -1,33 +1,50 @@
 import Styles from "@/styles/Signup.module.sass"
 import Image from "next/image"
-import { signIn } from 'next-auth/client';
+
+import { useState } from "react";
+import axios from "axios";
 
 export default function Signup(){
-    const onFormSubmit = async (e) => {
+    const [username1,setUsername] = useState("")
+    const [password1, setPassword] = useState("")
+    const [confirmPass1, setConfirm] = useState("")
+    const createUserHandle = async (e) => {
         e.preventDefault();
         //Getting value from useRef()
-        const email = emailRef.current.value;
-        const password = passwordRef.current.value;
+        const username = username1
+        const password = password1
         //Validation
-        if (!email || !email.includes('@') || !password) {
+        if (!username || !password) {
             alert('Invalid details');
             return;
         }
+        if (password !== confirmPass1) {
+            alert('password not matched');
+            return;
+        }
+        const body = {
+            username: username,
+            password: password,
+            plants: [],
+        }
         //POST form values
-        const res = await fetch('/api/auth/signup', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                email: email,
-                password: password,
-            }),
-        });
-        //Await for data for any desirable next steps
-        const data = await res.json();
+        const {data} = await axios.post('/api/auth/signup',body)
+
         console.log(data);
     };
+    const usernameHandle = (event: React.ChangeEvent<HTMLInputElement>) =>{
+        const value = event.target.value;
+        setUsername(value);
+    }
+    const passwordHandle = (event: React.ChangeEvent<HTMLInputElement>) =>{
+        const value = event.target.value;
+        setPassword(value);
+    }
+    const confirmPasswordHandle = (event: React.ChangeEvent<HTMLInputElement>) =>{
+        const value = event.target.value;
+        setConfirm(value)
+    }
+
     return(
         <div className={Styles.container}>
             <div className={Styles.picture}>
@@ -35,11 +52,11 @@ export default function Signup(){
             </div>
             <div className={Styles.logForm}>
                 <h1 className={Styles.title}>SIGN IN</h1>
-                <input type="email" placeholder="email" className={Styles.inputs}/>
-                <input type="email" placeholder="confirm email" className={Styles.inputs}/>
-                <input type="password" placeholder="password" className={Styles.inputs}/>
-                <input type="password" placeholder="confirm password" className={Styles.inputs}/>
-                <button className={Styles.button}>SIGN UP</button>
+                <input type="text" placeholder="username" className={Styles.inputs} onChange={usernameHandle}/>
+                
+                <input type="password" placeholder="password" className={Styles.inputs} onChange={passwordHandle}/>
+                <input type="password" placeholder="confirm password" className={Styles.inputs} onChange={confirmPasswordHandle}/>
+                <button className={Styles.button} onClick={createUserHandle}>SIGN UP</button>
             </div>
         </div>
     )

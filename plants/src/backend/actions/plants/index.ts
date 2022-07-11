@@ -12,11 +12,10 @@ export default abstract class PlantActions{
         await Database.setupClient(process.env.MONGODB_URI);
     }
 
-    static async createUser(name: string, username: string, password: string, plants: [Plant]){
+    static async createUser(username: string, password: string, plants: [Plant]){
         PlantActions.connectDB();
         const newUser = new UserModel(
             {
-                name,
                 username,
                 password,
                 plants

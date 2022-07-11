@@ -6,6 +6,9 @@ import User from "@/interfaces/User"
 import Plant from "@/interfaces/Plant"
 import { useState } from "react"
 import axios from "axios"
+import { getToken } from "next-auth/jwt"
+
+
 export default function EditPlants(props: Plant & User){
 
     const [name,setName] = useState("");
@@ -62,35 +65,51 @@ export default function EditPlants(props: Plant & User){
         const value = event.target.value;
         setName(value);
       }
-
-    return(
-        <div>
-            <h1 className={Styles.title}>Edit Plants</h1>
-            <div className={Styles.edit}>
-                <Image  src={props.Plantname} width={300} height={300} />
-                <div className={Styles.form}>
-                    <div>
-                        <h2>Name</h2>
-                        <input type="text" className={Styles.inputs} onChange={handleNameChange}/>
+      
+        return(
+            <div>
+                <h1 className={Styles.title}>Edit Plants</h1>
+                <div className={Styles.edit}>
+                    <Image  src={props.Plantname} width={300} height={300} />
+                    <div className={Styles.form}>
+                        <div>
+                            <h2>Name</h2>
+                            <input type="text" className={Styles.inputs} onChange={handleNameChange}/>
+                        </div>
+                        <div >
+                            <h2>Description</h2>
+                            <input type="text" className={Styles.inputs} onChange={handleDescriptionChange}/>
+                        </div>
+                        <br/>
+                        <button className={Styles.button} onClick={updatePlant}>Done</button>
+                        <br/>
+                        <button className={Styles.button} onClick={deletePlant}>Delete</button>
+    
                     </div>
-                    <div >
-                        <h2>Description</h2>
-                        <input type="text" className={Styles.inputs} onChange={handleDescriptionChange}/>
-                    </div>
-                    <br/>
-                    <button className={Styles.button} onClick={updatePlant}>Done</button>
-                    <br/>
-                    <button className={Styles.button} onClick={deletePlant}>Delete</button>
-
                 </div>
             </div>
-        </div>
-    )
+        )
+    
 }
 
 export const getServerSideProps : GetServerSideProps = async (context)=> {
-    
     try{
+    const secret = process.env.NEXTAUTH_SECRET;
+    const token = await getToken(
+        {
+            req: context.req,
+            secret
+        }
+    );
+
+    if (!token) {
+        return {
+            redirect: {
+                destination: '/login',
+                permanent: false
+            }
+        }
+    }
     
     const username = context.params.username as string
     const plantname = context.params.plantname as string

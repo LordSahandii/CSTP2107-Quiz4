@@ -7,6 +7,7 @@ import User from "@/interfaces/User";
 import { GetServerSideProps } from "next";
 import { useState } from "react";
 import Header from "@/components/Header";
+import { getToken } from "next-auth/jwt";
 
 
 
@@ -23,7 +24,7 @@ export default function MyPlants(props:User){
             <SearchBar onChange={searchHandler}/>
             <div className={Styles.box1}>
                 <h1 className={Styles.title}>MY PLANTS</h1>
-                <button className={Styles.AddButton} onClick={()=>{router.push("/addPlants")}}>ADD PLANTS</button>
+                <button className={Styles.AddButton} onClick={()=>{router.push("/AddPlants/"+props.username)}}>ADD PLANTS</button>
             </div>
             <div className={Styles.plantsShow}>
                 {
@@ -48,6 +49,22 @@ export default function MyPlants(props:User){
 export const getServerSideProps : GetServerSideProps = async (context)=> {
     
     try{
+    const secret = process.env.NEXTAUTH_SECRET;
+    const token = await getToken(
+        {
+            req: context.req,
+            secret
+        }
+    );
+
+    if (!token) {
+        return {
+            redirect: {
+                destination: '/login',
+                permanent: false
+            }
+        }
+    }
     
     const username = context.params.username as string
     const user = await PlantActions.getAUserById(username);

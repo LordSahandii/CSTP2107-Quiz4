@@ -2,12 +2,14 @@ import NextAuth from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials';
 import DiscordProvider from 'next-auth/providers/discord';
 import { compare } from 'bcrypt';
+import clientPromise from '@/backend/database/mongoclient';
 
 import { MongoDBAdapter } from '@next-auth/mongodb-adapter';
-import clientPromise from '@/backend/database';
 import { UserModel } from '@/backend/models/plants';
+import PlantActions from '@/backend/actions/plants';
 export default NextAuth(
     {
+        adapter: MongoDBAdapter(clientPromise),
         session: {
             strategy: 'jwt'
         },
@@ -33,10 +35,10 @@ export default NextAuth(
                         // wait for db connection
                         const client = await clientPromise;
                         // get database
-                        const database = client.setupClient(process.env.MONGODB_URI);
+                        const database = client.db();
 
                         // we want the user collection
-                        const userCollection = UserModel.find();
+                        const userCollection = database.collection('Users');
                         // find a user given the username
                         const user = await userCollection.findOne(
                             {
@@ -83,4 +85,5 @@ export default NextAuth(
             }
         }
     }
+    
 );
