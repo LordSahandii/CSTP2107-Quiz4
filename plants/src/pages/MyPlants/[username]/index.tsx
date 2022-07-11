@@ -34,7 +34,7 @@ export default function MyPlants(props:User){
                                 <div className={Styles.captions}>
                                     <h1>{p.Plantname}</h1>
                                     <p>{p.description}</p>
-                                    <button className={Styles.editButton} onClick={()=>{}}>EDIT</button>
+                                    <button className={Styles.editButton} onClick={()=>{router.push("/"+props.username+"/"+p.Plantname)}}>EDIT</button>
                                 </div>
                             </div>
                         )
