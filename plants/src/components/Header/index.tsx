@@ -25,7 +25,7 @@ export default function Header(props:Props){
                     <button className={Styles.buttons} onClick={props.Home}>Home</button>
                     <button className={Styles.buttons} onClick={props.PlantsF}>Plants Finder</button>
                     <button className={Styles.buttons} onClick={props.PlantsC}>Plants Care</button>
-                    <button className={Styles.buttons} onClick={()=>handleMyplants()}>My Plants</button>
+                    <button className={Styles.buttons} onClick={()=>handleMyplants(session.user.name)}>My Plants</button>
                 <button className={Styles.buttons} onClick={()=>{router.push("/login")}}><CgProfile className={Styles.icon}/></button>
                 
             </div>
