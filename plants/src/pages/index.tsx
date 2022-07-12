@@ -1,10 +1,10 @@
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Head from 'next/head'
-import Image from 'next/image'
+
 import styles from '../styles/Home.module.css'
 import HomePage from '../components/HomeContents/home'
-import SearchBar from '@/components/SearchBar'
+
 import PlantsFinder from '@/components/PlantsFinder'
 import PlantsCare from '@/components/PlantsCare'
 import { useState } from 'react'
@@ -41,9 +41,9 @@ export default function Home() {
         pages===2 &&
         <PlantsCare/>
       }
-      <div className={styles.foot}>
+      
       <Footer/>
-      </div>
+      
       
       
       
