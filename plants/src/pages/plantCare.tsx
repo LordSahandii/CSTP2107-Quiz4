@@ -3,9 +3,7 @@ import Header from '@/components/Header'
 import Head from 'next/head'
 
 import styles from '../styles/Home.module.css'
-import HomePage from '../components/HomeContents/home'
 
-import PlantsFinder from '@/components/PlantsFinder'
 import PlantsCare from '@/components/PlantsCare'
 
 export default function Home() {
@@ -19,7 +17,7 @@ export default function Home() {
       </Head>
       <Header/>
 
-        <HomePage/>
+        <PlantsCare/>
       
       <Footer/>
       

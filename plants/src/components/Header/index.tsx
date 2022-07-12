@@ -22,11 +22,11 @@ export default function Header(props:Props){
             <div className={Styles.container}>
                 {/* <div className={Styles.hContainer}> */}
                     
-                    <button className={Styles.buttons} onClick={props.Home}>Home</button>
-                    <button className={Styles.buttons} onClick={props.PlantsF}>Plants Finder</button>
-                    <button className={Styles.buttons} onClick={props.PlantsC}>Plants Care</button>
+                    <button className={Styles.buttons} onClick={()=>{router.push("/")}}>Home</button>
+                    <button className={Styles.buttons} onClick={()=>{router.push("/plantFinder")}}>Plants Finder</button>
+                    <button className={Styles.buttons} onClick={()=>{router.push("/plantCare")}}>Plants Care</button>
                     <button className={Styles.buttons} onClick={()=>handleMyplants(session.user.name)}>My Plants</button>
-                <button className={Styles.buttons} onClick={()=>{router.push("/login")}}><CgProfile className={Styles.icon}/></button>
+                    <button className={Styles.buttons} onClick={()=>signOut()}>Sign out</button>
                 
             </div>
     )
@@ -35,11 +35,11 @@ export default function Header(props:Props){
             <div className={Styles.container}>
             {/* <div className={Styles.hContainer}> */}
                 
-                <button className={Styles.buttons} onClick={props.Home}>Home</button>
-                <button className={Styles.buttons} onClick={props.PlantsF}>Plants Finder</button>
-                <button className={Styles.buttons} onClick={props.PlantsC}>Plants Care</button>
-                <button className={Styles.buttons} onClick={()=>handleMyplants("")}>My Plants</button>
-                <button className={Styles.buttons} onClick={()=>signOut()}>Signout</button>
+                <button className={Styles.buttons} onClick={()=>{router.push("/")}}>Home</button>
+                <button className={Styles.buttons} onClick={()=>{router.push("/plantFinder")}}>Plants Finder</button>
+                <button className={Styles.buttons} onClick={()=>{router.push("/plantCare")}}>Plants Care</button>
+                <button className={Styles.buttons} onClick={()=>{router.push("/login")}}>My Plants</button>
+                <button className={Styles.buttons} onClick={()=>{router.push("/login")}}><CgProfile className={Styles.icon}/></button>
             
             </div>
         )

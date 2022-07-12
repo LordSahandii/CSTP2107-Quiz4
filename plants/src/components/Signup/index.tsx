@@ -51,7 +51,7 @@ export default function Signup(){
                 <Image src="/signup.png" width={300} height={500}/>
             </div>
             <div className={Styles.logForm}>
-                <h1 className={Styles.title}>SIGN IN</h1>
+                <h1 className={Styles.title}>SIGN UP</h1>
                 <input type="text" placeholder="username" className={Styles.inputs} onChange={usernameHandle}/>
                 
                 <input type="password" placeholder="password" className={Styles.inputs} onChange={passwordHandle}/>
