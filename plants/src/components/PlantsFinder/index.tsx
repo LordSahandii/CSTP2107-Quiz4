@@ -8,32 +8,32 @@ export default function PlantsFinder(){
     const [query, setQuery] = useState("")
     let data : Plant[] = [
         {
-            name:"Plant A",
+            Plantname:"Plant A",
             plantImage: "/homrPlant1.png",
             description:"he best plant for making wishes and curse people."
         },
         {
-            name:"Plant B",
+            Plantname:"Plant B",
             plantImage: "/homePlant2.png",
             description:"he best plant for making wishes and curse people."
         },
         {
-            name:"Plant C",
+            Plantname:"Plant C",
             plantImage: "/homePlant3.png",
             description:"he best plant for making wishes and curse people."
         },
         {
-            name:"Plant D",
+            Plantname:"Plant D",
             plantImage: "/homePlant4.png",
             description:"he best plant for making wishes and curse people."
         },
         {
-            name:"Plant E",
+            Plantname:"Plant E",
             plantImage: "/homePlant5.png",
             description:"he best plant for making wishes and curse people."
         },
         {
-            name:"Plant F",
+            Plantname:"Plant F",
             plantImage: "/homePlant6.png",
             description:"he best plant for making wishes and curse people."
         },
@@ -50,14 +50,14 @@ export default function PlantsFinder(){
                     data.filter(post => {
                         if (query === '') {
                           return post;
-                        } else if (post.name.toLowerCase().includes(query.toLowerCase())) {
+                        } else if (post.Plantname.toLowerCase().includes(query.toLowerCase())) {
                           return post;
                         }
                       }).map((post, index) => (
                         <div className={Styles.plants} key={index}>
                             <Image src={post.plantImage} width={234} height={449}></Image>
                             <div className={Styles.captions}>
-                                <h1>{post.name}</h1>
+                                <h1>{post.Plantname}</h1>
                                 <p>{post.description}</p>
                             </div>
                         </div>

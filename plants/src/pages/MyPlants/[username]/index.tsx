@@ -17,6 +17,28 @@ export default function MyPlants(props:User){
     }
     const router = useRouter();
     const [plants, setPlants] = useState(props.plants)
+    const plantShow = () => {
+        if (plants) {
+            
+            plants.map((p,i)=>{
+                return(
+                    <div className={Styles.plants} key={i}>
+                        <Image src={p.plantImage} width={234} height={449}></Image>
+                        <div className={Styles.captions}>
+                            <h1>{p.Plantname}</h1>
+                            <p>{p.description}</p>
+                            <button className={Styles.editButton} onClick={()=>{router.push("/"+props.username+"/"+p.Plantname)}}>EDIT</button>
+                        </div>
+                    </div>
+                )
+            })
+        } else {
+        return (
+            <>
+            </>
+        )
+        }
+    }
     return(
         
         <div>
@@ -27,7 +49,24 @@ export default function MyPlants(props:User){
                 <button className={Styles.AddButton} onClick={()=>{router.push("/AddPlants/"+props.username)}}>ADD PLANTS</button>
             </div>
             <div className={Styles.plantsShow}>
-                {
+                <div className={Styles.plants}>
+                    <Image src="/HomePlant4.png" width={234} height={449}></Image>
+                    <div className={Styles.captions}>
+                    <h1>Dummy</h1>
+                    <p>Dummy</p>
+                    <button className={Styles.editButton} onClick={()=>{}}>EDIT</button>
+                    </div>
+                </div>
+                <div className={Styles.plants}>
+                    <Image src="/HomePlant4.png" width={234} height={449}></Image>
+                    <div className={Styles.captions}>
+                    <h1>Dummy</h1>
+                    <p>Dummy</p>
+                    <button className={Styles.editButton} onClick={()=>{}}>EDIT</button>
+                    </div>
+                </div>
+                        )
+                {/* {
                     plants.map((p,i)=>{
                         return(
                             <div className={Styles.plants} key={i}>
@@ -40,7 +79,7 @@ export default function MyPlants(props:User){
                             </div>
                         )
                     })
-                }
+                } */}
             </div>
         </div>
     )

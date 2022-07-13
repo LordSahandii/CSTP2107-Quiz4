@@ -5,7 +5,7 @@ export default interface User{
     username: string;
     password: string;
 
-    plants: [Plant];
+    plants: Plant[];
 
 
 }

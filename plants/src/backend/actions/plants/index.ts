@@ -42,14 +42,14 @@ export default abstract class PlantActions{
     static async updatePlantList(id: string, list: Plant[]): Promise<User>{
         PlantActions.connectDB();
 
-        const result = await UserModel.findByIdAndUpdate(id, { "plants" : list });
+        const result = await UserModel.findOneAndUpdate({username:id}, { "plants" : list });
         return result as User ?? null
     }
 
     static async deleteUser(id: string){
         PlantActions.connectDB();
 
-        const result = await UserModel.findByIdAndDelete(id);
+        const result = await UserModel.findOneAndDelete({username:id});
         return result as User ?? null
     }
 

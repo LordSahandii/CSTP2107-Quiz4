@@ -2,7 +2,7 @@ import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Head from 'next/head'
 
-import styles from '../styles/Home.module.css'
+import styles from '@/styles/Home.module.css'
 
 import Styles from "@/styles/AddPlants.module.sass"
 import { useState } from 'react'

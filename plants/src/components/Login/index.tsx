@@ -3,18 +3,21 @@ import axios from "axios"
 import Image from "next/image"
 import { useState } from "react"
 import { signIn } from "next-auth/react"
+import { useRouter } from "next/router"
 
 
 export default function Login(){
     const [username,setUsername] = useState("")
     const [password,setPassword] = useState("")
+    const router = useRouter();
     const handleLogin = async () =>{
         if(username==="" && password===""){
             alert("It cant be empty");
             return;
         }
+        
         console.log(password)
-        await signIn('credentials',{username: username, password: password})
+        const signed = await signIn('credentials',{username: username, password: password})
 
     }
     const usernameHandle = (event: React.ChangeEvent<HTMLInputElement>) =>{

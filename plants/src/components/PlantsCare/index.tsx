@@ -5,7 +5,9 @@ import Image from 'next/image'
 export default function PlantsCare(){
     return(
         <div>
-            <SearchBar/>
+            <SearchBar onChange={function (event: any): void {
+                throw new Error("Function not implemented.")
+            } }/>
             <h1 className={Styles.title}>PLANT'S CARE</h1>
             <div className={Styles.plantsShow}>
                 <div className={Styles.plants}>
