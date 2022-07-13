@@ -2,10 +2,10 @@
     - Hooks are an easier way for us to use react features instead of creating classes.
 
 2. Describe the process of making a protected route?
-    - 
+    - inside the getServerSideProps function we use the session function to call the nextauth api and get a token and if its valid and authenticated then it shows the page.
 
 3. Describe the process of making a protected page?
-    -
+    - inside the actual page with using the session we can show the contents depends if the user is authenticated or not.
 
 4. What is CORS & why is it useful?
     - stands as Cross-Origin Resource Sharing
