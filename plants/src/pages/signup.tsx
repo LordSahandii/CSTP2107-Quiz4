@@ -17,6 +17,11 @@ export default function SignUpPage() {
       </Head>
       <Header/>
       <Signup/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
       <div className={styles.foot}>
       <Footer/>
       </div>
