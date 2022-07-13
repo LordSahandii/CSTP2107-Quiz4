@@ -12,8 +12,9 @@ export default abstract class PlantActions{
         await Database.setupClient(process.env.MONGODB_URI);
     }
 
-    static async createUser(username: string, password: string, plants: [Plant]){
+    static async createUser(username: string, password: string, plants: Plant[]){
         PlantActions.connectDB();
+        console.log(username)
         const newUser = new UserModel(
             {
                 username,
@@ -33,7 +34,7 @@ export default abstract class PlantActions{
 
     static async getAUserById(id: string): Promise<User>{
         PlantActions.connectDB();
-        const user = await UserModel.findById(id);
+        const user = await UserModel.findOne({username:id});
 
         return user as User ?? null
     }

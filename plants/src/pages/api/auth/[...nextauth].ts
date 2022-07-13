@@ -13,6 +13,9 @@ export default NextAuth(
         session: {
             strategy: 'jwt'
         },
+        pages:{
+            signIn: "/login"
+        },
         providers: [
             CredentialsProvider(
                 {
@@ -28,24 +31,27 @@ export default NextAuth(
                         }
                     },
                     async authorize(credentials) {
+                        console.log(credentials)
                         // extract username, password from credentials
                         // provided by the user on the client side
                         const { username, password } = credentials;
+                        console.log(username)
 
                         // wait for db connection
                         const client = await clientPromise;
                         // get database
                         const database = client.db();
-
+                        
                         // we want the user collection
-                        const userCollection = database.collection('Users');
+                        const userCollection = database.collection('users');
                         // find a user given the username
+                        
                         const user = await userCollection.findOne(
                             {
-                                username
+                                username:username
                             }
                         );
-
+                            console.log(user)
                         if (!user) {
                             return null;
                         }

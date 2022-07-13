@@ -2,13 +2,20 @@ import Styles from "@/styles/Login.module.sass"
 import axios from "axios"
 import Image from "next/image"
 import { useState } from "react"
+import { signIn } from "next-auth/react"
 
 
 export default function Login(){
     const [username,setUsername] = useState("")
     const [password,setPassword] = useState("")
     const handleLogin = async () =>{
-        const result = await axios.post
+        if(username==="" && password===""){
+            alert("It cant be empty");
+            return;
+        }
+        console.log(password)
+        await signIn('credentials',{username: username, password: password})
+
     }
     const usernameHandle = (event: React.ChangeEvent<HTMLInputElement>) =>{
         const value = event.target.value;
